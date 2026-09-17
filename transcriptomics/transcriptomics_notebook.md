@@ -44,15 +44,11 @@ print("Hello World")
 
 **Table**:
 
-+------+------+------+
 | Col1 | Col2 | Col3 |
-+======+======+======+
+|------|------|------|
 |      |      |      |
-+------+------+------+
 |      |      |      |
-+------+------+------+
 |      |      |      |
-+------+------+------+
 
 **Image:**
 
@@ -63,3 +59,43 @@ print("Hello World")
 oh 67
 
 **Next Steps:**
+
+------------------------------------------------------------------------
+
+## 9.17.2026 - Diving into code
+
+-   Discussion
+
+-   Research background info and questions
+
+-   Learn how to unzip fast.qc files, etc.
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics`
+
+**Commands Used:**
+
+`zcat filename | head -n 4`
+
+-   opened a gzipped file, head opens the first part, -n 4 puts in number first 4 lines
+
+`cd /filepath/`
+
+-   change directory to filepath that you put in
+
+`ls ll`
+
+-   List, list long
+
+`zcat .fq.gz(file) | wc -l`
+
+-   open gzipped file, wc means count, -l means lines
+
+`history`
+
+-   shows all my previous commands of the day
+
+**Notes/Observations:**
+
+remember tab to finish commands yayy
