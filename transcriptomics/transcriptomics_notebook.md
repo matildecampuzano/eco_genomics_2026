@@ -99,3 +99,57 @@ oh 67
 **Notes/Observations:**
 
 remember tab to finish commands yayy
+
+------------------------------------------------------------------------
+
+## 9.22.2026 - Gene Expression Analysis
+
+-   Set up Rstudio working environment
+
+-   Set up directories in Transcriptomics directory
+
+-   Made mydata directory secret from github
+
+-   Copied data to import into DeSeq2
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics`
+
+**Script Used:**
+
+`~/Projects/eco_genomics_2026/transcriptomics/myscripts/ahud_DESeq2_inclas.R`
+
+**Commands Learned:**
+
+`git status`
+
+-   See whether git is up to date
+
+`git branch`
+
+-   ??
+
+`git pull/push`
+
+-   duh
+
+`mkdir filename`
+
+-   make a directory within whatever directory I'm in
+
+`cp * /filepath`
+
+-   copy stuff into filepath
+
+`touch ./filepath/filename.txt`
+
+-   make file(filename.txt) in filepath
+
+`rm filename.txt`
+
+-   remove filename.txt
+
+**Final Plot:**
+
+![](myresults/PCA_allGens.png){width="1000"}
