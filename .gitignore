@@ -5,3 +5,6 @@
 .RData
 .Ruserdata
 *.Rproj
+./transcriptomics/mydata
+#adds directory to gitignore because its a lot of data 
+#and we want it to not go to github because its secret
