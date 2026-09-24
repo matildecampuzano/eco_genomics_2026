@@ -61,7 +61,8 @@ median(rowSums(countsTableRound)) # [1] 377
 apply(countsTableRound,2,mean) # 2 in the apply function does the action across columns
 apply(countsTableRound,1,mean) # 1 in the apply function does the action across rows
 hist(apply(countsTableRound,1,mean),xlim=c(0,10000), ylim=c(0,60000),breaks=10000)
-Define our model and create a DESeq2 object
+
+#Define our model and create a DESeq2 object
 
 ####################################################
 
@@ -87,7 +88,9 @@ nrow(dds)
 dds <- DESeq(dds)
 
 # List the results you've generated
+
 resultsNames(dds)
+
 # Copy the results names:
 # [1] "Intercept"            "generation_F11_vs_F0" "generation_F2_vs_F0" 
 # [4] "generation_F4_vs_F0"  "treatment_OA_vs_AM"   "treatment_OW_vs_AM"  

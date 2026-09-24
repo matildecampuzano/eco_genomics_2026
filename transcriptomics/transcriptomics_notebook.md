@@ -153,3 +153,31 @@ remember tab to finish commands yayy
 **Final Plot:**
 
 ![](myresults/PCA_allGens.png){width="1000"}
+
+------------------------------------------------------------------------
+
+## 9.22.2026 - Gene Expression Analysis
+
+-   Set up Rstudio working environment
+
+-   Set up directories in Transcriptomics directory
+
+-   Made mydata directory secret from github
+
+-   Copied data to import into DeSeq2
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics`
+
+-   mine :)
+
+`/gpfs1/cl/biol3990/Transcriptomics/CountsMatrix`
+
+-   Where we got our data in our class filing cabinet!
+
+**Script Used:**
+
+`~/Projects/eco_genomics_2026/transcriptomics/myscripts/ahud_DESeq2_inclas.R`
+
+**Commands Learned:**
