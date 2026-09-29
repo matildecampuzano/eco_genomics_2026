@@ -181,3 +181,33 @@ remember tab to finish commands yayy
 `~/Projects/eco_genomics_2026/transcriptomics/myscripts/ahud_DESeq2_inclas.R`
 
 **Commands Learned:**
+
+------------------------------------------------------------------------
+
+## 9.22.2026 - Gene Expression Analysis
+
+-   Did more DESeq and plotting
+
+    -   Volcano plot
+
+    -   Heat map
+
+    -   Euler diagram
+
+    -   Upset plot
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics/mydata/`
+
+-   mine :)
+
+`/gpfs1/cl/biol3990/Transcriptomics/CountsMatrix`
+
+-   Where we got our data in our class filing cabinet!
+
+**Script Used:**
+
+`~/Projects/eco_genomics_2026/transcriptomics/myscripts/9.29.26_ahud_DESeq2_inclass_pt2.R`
+
+**Commands Learned:**
