@@ -1,6 +1,7 @@
 ##Setup####
 ## Set your working directory
-setwd("~/transcriptomics/mydata")
+getwd()
+setwd("/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics/mydata")
 
 ## Import the libraries that we're likely to need in this session
 
@@ -81,11 +82,11 @@ summary(res_OAvsAM)
 ### Plot Individual genes ### 
 
 # Counts of specific top interaction gene! (important validatition that the normalization, model is working)
-d <-plotCounts(dds_F0, gene="TRINITY_DN10209_c0_g2::TRINITY_DN10209_c0_g2_i3::g.33784::m.33784 5.55141e-30 2.28977e-26", intgroup = (c("treatment")), returnData=TRUE)
+d <-plotCounts(dds_F0, gene="TRINITY_DN30_c0_g2::TRINITY_DN30_c0_g2_i1::g.130::m.130", intgroup = (c("treatment")), returnData=TRUE)
 d
 
 p <-ggplot(d, aes(x=treatment, y=count, color=treatment)) + 
-  theme_minimal() + theme(text = element_text(size=20), panel.grid.major=element_line(colour="grey"))
+  theme_minimal() + theme(text = element_text(size=20), panel.grid.major=element_line(colour="pink"))
 p <- p + geom_point(position=position_jitter(w=0.2,h=0), size=3)
 p <- p + stat_summary(fun = mean, geom = "line")
 p <- p + stat_summary(fun = mean, geom = "point", size=5, alpha=0.7) 
@@ -112,9 +113,9 @@ ggplot(volcano_df,
            color = sig)) +
   geom_point(alpha = 0.6, size = 1.5) +
   scale_color_manual(values = c(
-    "Down" = "steelblue",
-    "NS"   = "grey70",
-    "Up"   = "firebrick"
+    "Down" = "purple",
+    "NS"   = "pink",
+    "Up"   = "orange"
   )) +
   geom_vline(xintercept = c(-1, 1),
              linetype = "dashed") +
@@ -258,8 +259,8 @@ data.
 upset(
   fromList(deg.list),
   order.by = "freq",
-  main.bar.color = "grey30",
-  sets.bar.color = c("#00A08A", "#CC3333", "#F2AD00"), # had to manually adjust the order
+  main.bar.color = "lightblue",
+  sets.bar.color = c("#CC3", "pink", "#F2AD00"), # had to manually adjust the order
   mainbar.y.label = "Number of DEGs",
   sets.x.label = "Total DEGs"
 )

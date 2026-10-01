@@ -184,7 +184,7 @@ remember tab to finish commands yayy
 
 ------------------------------------------------------------------------
 
-## 9.22.2026 - Gene Expression Analysis
+## 9.29.2026 - Gene Expression Analysis Day 2!
 
 -   Did more DESeq and plotting
 
@@ -210,4 +210,72 @@ remember tab to finish commands yayy
 
 `~/Projects/eco_genomics_2026/transcriptomics/myscripts/9.29.26_ahud_DESeq2_inclass_pt2.R`
 
-**Commands Learned:**
+**Plots I made!!**
+
+![](images/DESeq2_wes_anderson.png)
+
+![](images/DESeq2_volcano.png)
+
+## 10.1.2026 - Ending DESeq onto GO and WGCNA
+
+-   Did more DESeq and plotting
+
+    -   Scatter plot
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics/mydata/`
+
+-   mine :)
+
+`/gpfs1/cl/biol3990/Transcriptomics/CountsMatrix`
+
+-   Where we got our data in our class filing cabinet!
+
+**Script Used:**
+
+`~/Projects/eco_genomics_2026/transcriptomics/myscripts/9.29.26_ahud_DESeq2_inclass_pt2.R`
+
+**Commands learned:**
+
+`merge (x,y)`
+
+-   Merges x and y
+
+`cor (x,y)`
+
+-   calculates correlation (r!)
+
+`filter()`
+
+-   remove rows
+
+`mutate()`
+
+-   add a new variable
+
+`case_when()`
+
+-   classify genes into categories
+
+`arrange()`
+
+-   sort rows
+
+**Plots I made!!**
+
+![](images/DESeq2toGO_scatterplot.png)
+
+**Notes:**
+
+-   alpha can sometimes mean p value, and can sometimes mean opacity(in ggplot)
+
+-   Usual sequence of actions with genomics:
+
+    -   Filter the data
+
+    -   Annotate/Classify the genes
+
+    -   Order the results
+
+    -   Visualize with ggplot.
