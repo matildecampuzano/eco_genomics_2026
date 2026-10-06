@@ -278,4 +278,64 @@ remember tab to finish commands yayy
 
     -   Order the results
 
-    -   Visualize with ggplot.
+    -   Visualize with ggplot
+
+        ------------------------------------------------------------------------
+
+    ## 10.6.2026 - GO and WGCNA
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics/mydata/`
+
+-   mine :)
+
+`/gpfs1/cl/biol3990/Transcriptomics/WGCNA`
+
+`/gpfs1/cl/biol3990/Transcriptomics/GOenrichment`
+
+-   Where we got our data in our class filing cabinet!
+
+**Scripts Used:**
+
+-   10.6.26_GO_WGCNA_analysis_inclass.R
+
+-   10.6.26_WGCNA.R
+
+**Inputs:**
+
+-   trinotate_annotation_GOblastx_forTopGO.txt
+
+-   transcript_universe.csv
+
+-   bwnet.rds
+
+-   Ahud_trait_data.txt
+
+**Plots I made!!**
+
+![](images/GO_bubbleplot_proportionsignificance.png){width="600"}
+
+-   Also made dendrogram and PCA
+
+**Notes:**
+
+-   GO Enrichment:
+
+    -   Sorts genes by function by matching them to homologous genes
+
+    -   Shows DEGs in each groups, compare it to expected amount of DEGs, and find if that's significant
+
+-   WGCNA:
+
+    -   Quantify correlation in expression of two genes
+
+        -   Closer to 1 is more correlated
+
+    -   Run for every single gene pair(genes squared)
+
+    -   Creates modules of clustered/related genes and identifies hub genes
+
+        -   Hub genes are correlated with everything, while other stuff isn't correlated w/ each other (Bella in love triangle)
+
+-   Use MGI for GO annotations!!
