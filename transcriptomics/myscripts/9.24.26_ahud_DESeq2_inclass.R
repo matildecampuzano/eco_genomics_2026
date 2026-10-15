@@ -151,104 +151,18 @@ percentVar <- round(100 * attr(data,"percentVar"))
 
 ###########  
 
-dataF0 <- subset(data, generation == 'F0')
+dataF0F4F11 <- subset(data, generation %in% c("F0", "F4", "F11"))
 
-F0 <- ggplot(dataF0, aes(PC1, PC2)) +
-  geom_point(size=10, stroke = 1.5, aes(fill=treatment, shape=treatment)) +
+PCA_AM_OWA <- ggplot(dataF0F4F11, aes(PC1, PC2)) +
+  geom_point(size=7, stroke = 1.5, aes(fill=treatment, shape=generation)) +
   xlab(paste0("PC1: ",percentVar[1],"% variance")) +
   ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  ylim(-10, 25) + xlim(-40, 10)+ # zoom for F0 with new assembly
-  scale_shape_manual(values=c(21,22,23,24), labels = c("Ambient", "Acidification","Warming", "OWA"))+
-  scale_fill_manual(values=c('#6699CC',"#F2AD00","#00A08A", "#CC3333"), labels = c("Ambient", "Acidification","Warming", "OWA"))+
-  theme_bw() +
-  theme(legend.position = "none") +
-  theme(panel.border = element_rect(color = "black", fill = NA, size = 4))+
-  theme(text = element_text(size = 20)) +
-  theme(legend.title = element_blank())
-
-F0
-##graph shows degree of similarity between samples
-
-################# F2
-
-dataF2 <- subset(data, generation == 'F2')
-
-F2 <- ggplot(dataF2, aes(PC1, PC2)) +
-  geom_point(size=10, stroke = 1.5, aes(fill=treatment, shape=treatment)) +
-  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
-  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  ylim(-40, 25) + xlim(-50, 55)+
-  scale_shape_manual(values=c(21,22,23), labels = c("Ambient", "Acidification","Warming"))+
-  scale_fill_manual(values=c('#6699CC',"#F2AD00","#00A08A"), labels = c("Ambient", "Acidification","Warming"))+
-  theme(legend.position = c(0.83,0.85), legend.background = element_blank(), legend.box.background = element_rect(colour = "black")) +
-  guides(shape = guide_legend(override.aes = list(shape = c( 21,22, 23))))+
-  guides(fill = guide_legend(override.aes = list(shape = c( 21,22, 23))))+
-  guides(shape = guide_legend(override.aes = list(size = 5)))+
-  theme_bw() +
-  theme(legend.position = "none") +
-  theme(panel.border = element_rect(color = "black", fill = NA, size = 4))+
-  theme(text = element_text(size = 20)) +
-  theme(legend.title = element_blank())
-F2
-
-# Yes - F2 is missing one ambient replicate
-
-################################ F4
-
-dataF4 <- subset(data, generation == 'F4')
-
-F4 <- ggplot(dataF4, aes(PC1, PC2)) +
-  geom_point(size=10, stroke = 1.5, aes(fill=treatment, shape=treatment)) +
-  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
-  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  ylim(-40, 25) + xlim(-50, 55)+ # limits with filtered assembly
-  scale_shape_manual(values=c(21,22,23,24), labels = c("Ambient", "Acidification","Warming", "OWA"))+
-  scale_fill_manual(values=c('#6699CC',"#F2AD00","#00A08A", "#CC3333"), labels = c("Ambient", "Acidification","Warming", "OWA"))+
-  guides(shape = guide_legend(override.aes = list(shape = c( 21,22, 23, 24))))+
-  guides(fill = guide_legend(override.aes = list(shape = c( 21,22, 23, 24))))+
-  guides(shape = guide_legend(override.aes = list(size = 5)))+
-  theme_bw() +
-  theme(legend.position = "none") +
-  theme(panel.border = element_rect(color = "black", fill = NA, size = 4))+
-  theme(text = element_text(size = 20)) +
-  theme(legend.title = element_blank())
-F4
-
-
-################# F11
-
-dataF11 <- subset(data, generation == 'F11')
-
-F11 <- ggplot(dataF11, aes(PC1, PC2)) +
-  geom_point(size=10, stroke = 1.5, aes(fill=treatment, shape=treatment)) +
-  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
-  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
-  ylim(-45, 25) + xlim(-50, 55)+
-  scale_shape_manual(values=c(21,24), labels = c("Ambient", "OWA"))+
+  ylim(-25, 30) + xlim(-30, 65) +
+  scale_shape_manual(values=c(21,22,24), labels = c("F0", "F4", "F11"))+
   scale_fill_manual(values=c('#6699CC', "#CC3333"), labels = c("Ambient", "OWA"))+
-  guides(shape = guide_legend(override.aes = list(shape = c( 21, 24))))+
-  guides(fill = guide_legend(override.aes = list(shape = c( 21, 24))))+
-  guides(shape = guide_legend(override.aes = list(size = 5)))+
   theme_bw() +
-  theme(legend.position = "none") +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 4))+
   theme(text = element_text(size = 20)) +
   theme(legend.title = element_blank())
-F11
 
-
-# png("PCA_F11.png", res=300, height=5, width=5, units="in")
-# 
-# ggarrange(F11, nrow = 1, ncol=1)
-# 
-# dev.off()
-
-ggarrange(F0, F2, F4, F11, nrow = 2, ncol=2)
-
-##NOW WE GOTTA SAVE ITTT as png
-
-png("./myresults/PCA_allGens.png", res=300, height=5, width=5, units="in")
-
-ggarrange(F0, F2, F4, F11, nrow = 2, ncol=2)
-
-dev.off()
+PCA_AM_OWA

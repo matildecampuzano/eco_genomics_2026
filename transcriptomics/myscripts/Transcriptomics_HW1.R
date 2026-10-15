@@ -310,7 +310,7 @@ volcano_df_F11 <- ggplot(volcano_df_F11,
 
 volcano_df_F11
 
-ggarrange(volcano_df_F0, volcano_df_F4, volcano_df_F11)
+ggarrange(volcano_df_F0, volcano_df_F4, volcano_df_F11, nrow = 3)
 
 
 ##Make PCA with F0,4,11 gens with only OWA and AM####
@@ -340,6 +340,7 @@ PCA_AM_OWA <- ggplot(dataF0F4F11, aes(PC1, PC2)) +
   theme_bw() +
   theme(panel.border = element_rect(color = "black", fill = NA, size = 4))+
   theme(text = element_text(size = 20)) +
+  guides(fill = guide_legend(override.aes = list(shape = 21))) +
   theme(legend.title = element_blank())
   
 
@@ -456,7 +457,7 @@ write.csv(
 
 #skip to here if already made csv's for GO####
 ##prep to run GO analyses, make sure I'm in mydata in working directory
-
+setwd("/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics/mydata")
 mappingFile <- "trinotate_annotation_GOblastx_forTopGO.txt"
 
 geneID2GO <- readMappings(
@@ -548,6 +549,8 @@ run_topGO_contrast <- function(
 }
 
 ##Run TopGO for different generations remember to set wd back to transcriptomics
+
+setwd("/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/transcriptomics")
 
 GO_OWA_F0 <- run_topGO_contrast(
   "myresults/OWAvsAM_F0_results.csv",
