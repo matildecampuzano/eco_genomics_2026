@@ -59,7 +59,7 @@ print("Hello World")
 
 ## 10.20.2026 - Population Structure
 
--   
+-   Ran batch job
 
 **Working Directory:**
 
@@ -100,3 +100,77 @@ print("Hello World")
     -   Population Structure
 
         -   MAF- Minor Allele Frequence, filter out samples w/ weird allele not seen(rare or mistake)
+
+------------------------------------------------------------------------
+
+## 10.22.2026 - Genetic Diversity
+
+-   
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/population_genomics`
+
+-   mine
+
+**Commands:**
+
+**Code:**
+
+``` r
+print("Hello World")
+```
+
+**Image:**
+
+**Notes/Observations:**
+
+-   Looking at Genetic Diversity:
+
+    -   Within Individual:
+
+        -   Diversity between structure/chromosomes, what are more heterozygous etc.
+
+    -   Within Population:
+
+        -   Fitness, projecting dynamics?
+
+    -   Within Species:
+
+        -   Diversification of populations within species
+
+-   Metrics for measuring:
+
+    -   Fst -\> fixation index(population idfferentiation)
+
+    -   Heterozygosity (using Hardy-Weinberg Equilibrium)
+
+    -   Ne -\> Genetic, Nc -\> Consensus
+
+    -   SNP's (Nucleotide diversity aka pi)
+
+    -   Fis -\> Inbreeding coefficient
+
+        -   if F\>0=Inbred
+
+        -   H0 is het. indiv/total indiv.
+
+    -   Allele richness (\# unique alleles per locus)
+
+    -   Tajima'sD= How many segregating sites do we have
+
+        -   (pi-Vaterson's theta)/(Var\*sqrt(pi-theta))
+
+            -   pi is pairwise nucleotide diversity -\>pairwise makes it more sensitive to rare alleles
+
+            -   theta is (segregating sites)/(sample size coefficients)
+
+        -   Should equal 0 if expected
+
+        -   \<0 is excess of rare mutations
+
+            -   Could come from sensitive sweep or rapid population expansion
+
+        -   \>0 is excess of common mutations
+
+            -   Balancing selection, more heterozygosity
