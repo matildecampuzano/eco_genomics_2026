@@ -174,3 +174,77 @@ print("Hello World")
         -   \>0 is excess of common mutations
 
             -   Balancing selection, more heterozygosity
+
+------------------------------------------------------------------------
+
+## 10.27.2026 - Genetic Diversity & Selection Sweeps
+
+-   Heterozygosity
+
+-   Fst
+
+-   etc.
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/population_genomics`
+
+-   mine
+
+**Commands:**
+
+**Code:**
+
+``` r
+print("Hello World")
+```
+
+**Image:**
+
+**Notes/Observations:**
+
+-   biooracle has all the environmental data, but its averages so can't show seasonal nuance, etc.
+
+-   looked at windows of Fst, see where it is highest in the genome between two groups
+
+------------------------------------------------------------------------
+
+## 10.29.2026 - Selection Sweeps
+
+-   BayPass
+
+**Working Directory:**
+
+`/gpfs1/home/m/c/mcampuza/Projects/eco_genomics_2026/population_genomics`
+
+-   mine
+
+**Commands:**
+
+**Code:**
+
+``` r
+print("Hello World")
+```
+
+**Image:**
+
+**Notes/Observations:**
+
+-   looked at windows of Fst, see where it is highest in the genome between two groups
+
+-   BayPass- give it prior information that it can build off of
+
+    -   Can solve problems of Fst( only two populations at a time, ignore shared history of population, only show differentiation in locus, not why)
+
+    -   Omega: pairwise differences between sites, which represents neutral population structure drift etc.
+
+        -   Corrects for demographic effects on genomic structure, like genetic drift, non-random mating to pick out NATURAL SELECTION
+
+    -   Uses alelle counts instead of allele frequency
+
+    -   uses Xtx based on omega
+
+    -   Run Baypass 5+ times and then average it to make sure it isn't pulling out super random stuff
+
+    -   Higher Bays factor is significant, anything above 20
