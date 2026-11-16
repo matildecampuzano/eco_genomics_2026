@@ -182,6 +182,7 @@ bf <- read.table("BayPassHomework/Lottia_bp_2_summary_betai_reg.out", header = T
 bf %>%
   group_by(covariate) %>%
   summarise(n_decisive = sum(BF_dB > 20))
+
 #maps stuff to environmental factors
 ggplot(bf, aes(x = genome_pos / 1e6, y = BF_dB)) +
   geom_point(aes(colour = shade), size = 0.6) +
@@ -218,22 +219,39 @@ get_top_freq <- function(cov, n = 5) {
     mutate(pop = factor(pop, levels = unique(pop[order(-lat)])))
 }
 
+library(dplyr)
+library(ggplot2)
 library(patchwork)
 
-plot_top_snps <- function(cov, xlab, n = 5) {
+plot_top_snps <- function(cov, xlab, n = 5, method = "pearson") {
   dat <- get_top_freq(cov, n)
-  ggplot(dat, aes(x = .data[[cov]], y = alt_freq, color = pop)) +
-    geom_point(size = 3) +
+  
+  # one correlation per SNP panel
+  cors <- dat %>%
+    group_by(snp) %>%
+    summarise(
+      r = cor(.data[[cov]], alt_freq, method = method, use = "complete.obs"),
+      .groups = "drop"
+    ) %>%
+    mutate(label = sprintf("r = %.2f", r))
+  
+  ggplot(dat, aes(x = .data[[cov]], y = alt_freq)) +
+    geom_smooth(method = "lm", se = FALSE, color = "grey30",
+                linewidth = 0.8, linetype = "dashed") +
+    geom_point(aes(color = pop), size = 2) +
+    geom_text(data = cors, aes(label = label),
+              x = -Inf, y = Inf, hjust = -0.1, vjust = 1.2,
+              size = 3.3, inherit.aes = FALSE) +
     scale_colour_viridis_d(end = 0.9) +
-    scale_x_continuous(n.breaks = 3) +                 # avoids crowded x labels in narrow panels
-    ylim(0, 1) +
+    scale_x_continuous(n.breaks = 3) +
+    scale_y_continuous(limits = c(0, 1)) +
     facet_wrap(~ snp, nrow = 1) +
     labs(x = xlab, y = "Allele frequency", color = "Population",
          title = paste("Top", n, "SNPs associated with", cov)) +
     theme_classic() +
     theme(
-      panel.border  = element_rect(color = "grey40", fill = NA, linewidth = 0.8),  # box around each panel
-      panel.spacing = unit(0.5, "lines"),                                          # gap between panels
+      panel.border  = element_rect(color = "grey40", fill = NA, linewidth = 0.8),
+      panel.spacing = unit(0.5, "lines"),
       strip.background = element_rect(fill = "grey92", color = "grey40"),
       strip.text = element_text(face = "bold")
     )
