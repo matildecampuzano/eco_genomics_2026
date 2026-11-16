@@ -30,7 +30,7 @@ omega_df <- as.data.frame(as.table(omega_cor)) %>%
          pop2 = factor(pop2, levels = pop_order))
 
 ###if you get any errors for visuals, try dev.off()
-ggplot(omega_df, aes(x = pop1, y = pop2, fill = correlation)) +
+omega_og <- ggplot(omega_df, aes(x = pop1, y = pop2, fill = correlation)) +
   geom_tile(colour = "white") +
   scale_fill_gradient2(low = "black", mid = "darkorchid4", high = "darkorange2",
                        midpoint = 0, limits = c(-1, 1)) +
@@ -38,7 +38,7 @@ ggplot(omega_df, aes(x = pop1, y = pop2, fill = correlation)) +
        title = "BayPass Omega as correlations (south to north)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
+omega_og
 ggsave(paste0(OUTDIR,"/baypass_omega.png"), width = 7, height = 6)
 
 #look only at snps more differentiated than expected based on omega value
@@ -116,6 +116,11 @@ bf <- read.table("baypass/Lottia_bp_summary_betai_reg.out", header = TRUE, check
 bf %>%
   group_by(covariate) %>%
   summarise(n_decisive = sum(BF_dB > 20))
+
+bf %>%
+  group_by(covariate) %>%
+  filter(BF_dB > 20) -> outliers_BF
+
 #maps stuff to environmental factors
 ggplot(bf, aes(x = genome_pos / 1e6, y = BF_dB)) +
   geom_point(aes(colour = shade), size = 0.6) +

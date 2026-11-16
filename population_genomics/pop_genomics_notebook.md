@@ -105,7 +105,7 @@ print("Hello World")
 
 ## 10.22.2026 - Genetic Diversity
 
--   
+-   Heterozygosity
 
 **Working Directory:**
 
